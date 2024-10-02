@@ -1,0 +1,68 @@
+# Ignore build output
+bin/
+obj/
+
+# User-specific files
+*.suo
+*.user
+*.userprefs
+*.vs/
+.vscode/
+
+# Visual Studio Code files
+.vscode/
+
+# Rider files
+.idea/
+
+# ASP.NET Core specific
+*.db
+
+# Publish directory
+publish/
+
+# NuGet Packages
+*.nupkg
+**/packages/*
+!**/packages/build/*.ps1
+!**/packages/build/*.cmd
+
+# Backup files
+*~ 
+*.bak
+*.swp
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Others
+*.dll
+*.exe
+*.pdb
+*.mdb
+*.idb
+*.sln.docstates
+
+# Coverlet
+coverage.*
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Visual Studio
+*.suo
+*.user
+*.userprefs
+*.tss
+*.vsp
+*.vspscc
+*.vssscc
+
+# Ignore local development files
+.env
