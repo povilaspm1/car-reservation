@@ -14,11 +14,9 @@ namespace CarReservation.Services
 
         public async Task<Reservation> ReserveCarAsync(Reservation reservation)
         {
-            var endTime = reservation.StartTime.AddMinutes((reservation.EndTime - reservation.StartTime).TotalMinutes);
-
             if (!string.IsNullOrEmpty(reservation.CarId))
             {
-                if (await _carsDatabase.IsCarAvailableAsync(reservation.CarId, reservation.StartTime, endTime))
+                if (await _carsDatabase.IsCarAvailableAsync(reservation.CarId, reservation.StartTime, reservation.EndTime))
                 {
                     await _carsDatabase.StoreReservationAsync(reservation.CarId, reservation);
                     return reservation; 
@@ -30,7 +28,7 @@ namespace CarReservation.Services
 
             foreach (var car in availableCars)
             {
-                if (await _carsDatabase.IsCarAvailableAsync(car.Id, reservation.StartTime, endTime))
+                if (await _carsDatabase.IsCarAvailableAsync(car.Id, reservation.StartTime, reservation.EndTime))
                 {
                     reservation.CarId = car.Id;
 
